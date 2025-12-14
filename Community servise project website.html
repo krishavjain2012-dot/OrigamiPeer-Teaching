@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Origami Peer-Teaching</title>
+  <style>
+    body {
+      font-family: 'Trebuchet MS', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f7e9ff, #d7f7ff);
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #8ecfff;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    select {
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 15px;
+      border-radius: 10px;
+      border: 2px solid #ffffff;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    .content-box {
+      background: #ffffff;
+      margin: 40px auto;
+      padding: 25px;
+      width: 90%;
+      max-width: 900px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 200px;
+      margin: 15px 0;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+      font-style: italic;
+      /* background-color removed */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #4a74ff;
+    }
+
+    ul li, ol li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background:#4a74ff;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      font-size:1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Origami Peer-Teaching</h1>
+    <p>Select a course to explore:</p>
+    <select id="courseSelect">
+      <option value="">-- Choose a Course --</option>
+      <option value="basic">Basic Course</option>
+      <option value="advanced">Advanced Course</option>
+    </select>
+  </header>
+
+  <div class="content-box" id="descriptionBox">
+    Please select a course to view its description.
+  </div>
+
+  <div id="basicImages" style="display:none;">
+    <div class="image-placeholder">Add image for Puppy/Cat Face here</div>
+    <div class="image-placeholder">Add image for Fortune Teller here</div>
+    <div class="image-placeholder">Add image for Jumping Frog here</div>
+    <div class="image-placeholder">Add image for Traditional Boat here</div>
+    <div class="image-placeholder">Add image for Simple House here</div>
+  </div>
+
+  <div id="advancedImages" style="display:none;"><center>
+    <img src="C:\Users\krishav\Downloads\IMG_0663.jpeg" height=750 width=750>
+    <div class="image-placeholder">Modular Origami Sonobe Unit</div>
+    <img src="C:\Users\krishav\Downloads\IMG_0664.jpeg" height=750 width=750>
+    <div class="image-placeholder">Traditional/Action Models (Flapping Bird)</div>
+    <img src="C:\Users\krishav\Downloads\IMG_0661.jpeg" height=750 width=750>
+    <div class="image-placeholder">Traditional/Action Models (Ninja Star)</div>
+    <img src="C:\Users\krishav\Downloads\IMG_0665.jpeg" height=750 width=750>
+    <div class="image-placeholder">Infinty Loop (Star)</div>
+    <img src="C:\Users\krishav\Downloads\IMG_0662.jpeg" height=750 width=750>
+    <div class="image-placeholder">Infinty Loop (1-Sheet)</div>
+  </center></div>
+
+  <footer id="footer">
+    <p><strong>Name:</strong> Krishav Jain</p>
+    <p><strong>Mobile Number:</strong> 6504415811</p>
+    <p><strong>Email Address:</strong> krishav.jai.0512@brssd.org</p>
+  </footer>
+
+  <script>
+    const courseSelect = document.getElementById("courseSelect");
+    const descriptionBox = document.getElementById("descriptionBox");
+    const footer = document.getElementById("footer");
+    const basicImages = document.getElementById("basicImages");
+    const advancedImages = document.getElementById("advancedImages");
+
+    const descriptions = {
+      basic: `<h2>Basic Course</h2>
+      <ul>
+        <li><strong>Origami Puppy/Cat Face:</strong> Simple corner folds form ears and a face, with creative drawing added.</li>
+        <li><strong>Origami Fortune Teller:</strong> A fun interactive model used for labeling and playing.</li>
+        <li><strong>Origami Jumping Frog:</strong> A slightly more involved action model that can jump.</li>
+        <li><strong>Traditional Origami Boat:</strong> A foundational model that can float on water.</li>
+        <li><strong>Simple House:</strong> A quick model that encourages imaginative play and expansion.</li>
+      </ul>
+      <h3>Key Geometry Subjects Taught</h3>
+      <ul>
+        <li><strong>Puppy/Cat Face:</strong> Basic angles and vertices — folding corners to create new shapes teaches angle recognition and understanding of vertices.</li>
+        <li><strong>Fortune Teller:</strong> Area and perimeter — folding corners toward the center forms smaller congruent triangles/squares and shows how area/perimeter change with each fold.</li>
+        <li><strong>Jumping Frog:</strong> Spatial reasoning and proportionality — visualizing how sections form the frog improves spatial awareness and proportional sizing.</li>
+        <li><strong>Traditional Boat:</strong> Congruent shapes and stability — converting rectangle → triangle → square reinforces congruent shapes and structural stability.</li>
+        <li><strong>Simple House:</strong> Parallel and perpendicular lines — the walls form parallels, and roof/wall intersections form perpendiculars.</li>
+      </ul>`,
+
+      advanced: `<h2>Advanced Course</h2>
+      <ol>
+        <li><strong>Modular Origami Sonobe Unit</strong><br>
+          <ul>
+            <li>Symmetry & congruence in 3D space.</li>
+            <li>Structural stability using interlocking tension.</li>
+          </ul>
+        </li>
+
+        <li><strong>Traditional/Action Models (Flapping Bird, Ninja Star)</strong><br>
+          <ul>
+            <li>Crease patterns & logical sequences.</li>
+            <li>Kinematics & movement through joint-like folds.</li>
+            <li>Proportions and angle precision.</li>
+          </ul>
+        </li>
+
+        <li><strong>Infinity Loop (1-Piece, Star)</strong><br>
+          <ul>
+            <li>Rotational symmetry & transformation.</li>
+            <li>Flexagons & rigid foldability.</li>
+            <li>Angles, vertices & Maekawa's theorem.</li>
+            <li>2D-to-3D structural transformation.</li>
+            <li>Algorithmic sequencing.</li>
+          </ul>
+        </li>
+      </ol>`
+    };
+
+    courseSelect.addEventListener("change", () => {
+      const selected = courseSelect.value;
+      descriptionBox.innerHTML = descriptions[selected] || "Please select a course to view its description.";
+      footer.style.display = selected ? "none" : "block";
+      basicImages.style.display = selected === 'basic' ? 'block' : 'none';
+      advancedImages.style.display = selected === 'advanced' ? 'block' : 'none';
+    });
+  </script>
+
+</body>
+</html>
